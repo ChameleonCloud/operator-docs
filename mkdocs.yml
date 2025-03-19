@@ -1,7 +1,14 @@
 site_name: ChameleonCloud Ops Guide
+site_url: https://chameleoncloud.github.io/operator-docs/
+repo_url: https://github.com/ChameleonCloud/operator-docs/
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
     - navigation.sections
     - navigation.expand
 
