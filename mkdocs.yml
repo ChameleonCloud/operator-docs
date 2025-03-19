@@ -1,0 +1,14 @@
+site_name: ChameleonCloud Ops Guide
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+
+nav:
+  - Readme: README.md
+  - Ticketmaster: ticketmaster.md
+  - 'To Sort': guides/catchall.md
+  - Guides:
+    - 'Change BIOS Settings': guides/bios-changes.md
+    - 'Troubleshooting': guides/troubleshooting.md
