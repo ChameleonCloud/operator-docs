@@ -1,0 +1,899 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bios-changes/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Troubleshooting - ChameleonCloud Ops Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-a-reservation-for-a-node-to-maintain" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ChameleonCloud Ops Guide" class="md-header__button md-logo" aria-label="ChameleonCloud Ops Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ChameleonCloud Ops Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ChameleonCloud Ops Guide" class="md-nav__button md-logo" aria-label="ChameleonCloud Ops Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ChameleonCloud Ops Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ticketmaster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ticketmaster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catchall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    To Sort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change BIOS Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-reservation-for-a-node-to-maintain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a reservation for a node to maintain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a reservation for a node to maintain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-out-when-the-nodes-are-currently-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find out when the nodes are currently reserved.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-a-leases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2, make a lease(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-leases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the leases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-a-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspecting a Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiping-a-nodes-disks-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiping a Node's disks (cleaning)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-data-from-deleted-baremetal-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovering data from deleted baremetal instances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lease-fails-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lease Fails to start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lease Fails to start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-address-already-allocated-in-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP address \ already allocated in subnet \
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-not-in-free-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host not in Free pool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lease-is-remaining-intact-and-is-not-being-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      The lease is remaining intact and is not being deleted.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-node-to-another-lease" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving node to another lease
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-reservation-for-a-node-to-maintain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a reservation for a node to maintain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a reservation for a node to maintain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-out-when-the-nodes-are-currently-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find out when the nodes are currently reserved.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-a-leases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2, make a lease(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-leases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the leases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-a-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspecting a Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiping-a-nodes-disks-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiping a Node's disks (cleaning)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-data-from-deleted-baremetal-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovering data from deleted baremetal instances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lease-fails-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lease Fails to start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lease Fails to start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-address-already-allocated-in-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP address \ already allocated in subnet \
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-not-in-free-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host not in Free pool
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lease-is-remaining-intact-and-is-not-being-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      The lease is remaining intact and is not being deleted.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-node-to-another-lease" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving node to another lease
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Troubleshooting</h1>
+
+<h3 id="getting-a-reservation-for-a-node-to-maintain">Getting a reservation for a node to maintain</h3>
+<p>Example: We need to replace SSDs in nodes P3-SSD-009 and P3-SSD-010, but they are currently reserved. Therefore, we'll need to make our own reservation for a future time.</p>
+<h4 id="step-1-find-out-when-the-nodes-are-currently-reserved">Step 1: Find out when the nodes are currently reserved.</h4>
+<p>We go to https://chi.uc.chameleoncloud.org/project/leases/calendar/host/ , then select the node type of "storage_nvme"</p>
+<p><img alt="image" src="https://gist.github.com/assets/18199349/2793a967-d092-42f6-ae04-fb6da9dc54ff" /> The bars go off the right side of the screen, so we zoom out to 30 days. <img alt="image" src="https://gist.github.com/assets/18199349/e8902663-04ff-40ff-a95f-9553c45d8dec" /></p>
+<p>It's not clear what date the lease ends visually, but we can hover over the tooltips and get timestamps.</p>
+<ul>
+<li>
+<p>Current lease:</p>
+<p><img alt="image" src="https://gist.github.com/assets/18199349/c5c27990-42b5-4f60-973d-acebd3c18049" />
+*   Blocking lease:</p>
+<p><img alt="image" src="https://gist.github.com/assets/18199349/ad02a76a-5817-4857-b48b-e2514393d412" /></p>
+</li>
+</ul>
+<p>So we can make a lease either between 2024/02/21 and 2024/02/23, or after 2024/03/01.</p>
+<p>We don't know the timezone, so we'll try both UTC and Central Time (Chicago)</p>
+<h4 id="step-2-make-a-leases">Step 2, make a lease(s)</h4>
+<p>We want to reserve two different nodes by name, and Blazar doesn't support "OR" parameters. We could specify an array of reservations, but the syntax is difficult via CLI, and not supported in horizon.</p>
+<p>So, instead we'll make two leases.</p>
+<p>Here, we fill in parameters to try and fit a lease in on the 21st-23rd. <img alt="image" src="https://gist.github.com/assets/18199349/4a1c456c-1ed4-4427-b140-f3df9a612d6a" /></p>
+<p>It tells us not to specify seconds, even though the lease calendar shows them. <img alt="image" src="https://gist.github.com/assets/18199349/7e3dd4ec-b130-4c4d-a46e-f0dbc611fd51" /></p>
+<p>We specify the node by name, and set quantity min=max=1 <img alt="image" src="https://gist.github.com/assets/18199349/26bc1dce-186b-405b-b49c-e0357dd1ef7e" /></p>
+<p>We click create lease, and hooray, it worked! If we guessed wrong, we would have started this step over.</p>
+<p>Now we do it a second time for node p3-ssd-009.</p>
+<h4 id="using-the-leases">Using the leases</h4>
+<p>Once the leases start, we'll know that users do NOT have the nodes. At that time, we'll use the openstack CLI to:</p>
+<ol>
+<li>set the nodes to maintenance mode in ironic</li>
+<li><code>openstack baremetal node maintenance set p3-ssd-009</code></li>
+<li><code>openstack baremetal node maintenance set p3-ssd-010</code></li>
+<li>view current maintenance status with <code>openstack baremetal node show p3-ssd-009</code></li>
+<li>Now that the node have maintenance mode set in ironic, it will no longer enforce power state. This means that powering the node on and off with idrac or the physical power button will work as expected. However, openstack related operations (node cleaning, inspection, provisioning), will be blocked until maintenance mode is unset.</li>
+</ol>
+<h2 id="inspecting-a-node">Inspecting a Node</h2>
+<p>To run some basic health checks on a node (that isn't in use), we can use ironic's inpection feature. This will network boot a node into the ironic agent ramdisk, and then report a bunch of information about the node to ironic. Besides being used to populate the reference-api, it's a good sanity check for "Can ironic successfully boot and manage this node", e.g. if inspection fails, then deploying instances will also fail. (However, if inspection succeeds, this does not necessarily guarantee that deploying an instance will too).</p>
+<ol>
+<li>Check the current state of the node: <code>openstack baremetal node show &lt;node_name_or_uuid&gt;</code></li>
+<li>If the <code>provision_state</code> is <em>not</em> <code>active</code>, then we can proceed, and set the node to the manageable state via <code>openstack baremetal node manage &lt;node_name_or_uuid&gt;</code></li>
+<li>Start the inspection by running <code>openstack baremetal node inspect &lt;node_name_or_uuid&gt;</code></li>
+<li>After about 15 minutes, the node will have either finished, and moved back to state <code>manageable</code>, or failed and moved to state <code>inspect failed</code>. If it failed, look into the logs and see why, similar to failed deployments. If it succeeded, move it back to available via <code>openstack baremetal node provide</code></li>
+</ol>
+<p>{% hint style="warning" %}
+If the node inspected successfully, make sure to move it back to <code>available</code>! Otherwise, it won't be available for users.&#x20;
+{% endhint %}</p>
+<h2 id="wiping-a-nodes-disks-cleaning">Wiping a Node's disks (cleaning)</h2>
+<p>To wipe data on a node, you can use ironic's "cleaning" feature.</p>
+<p>{% embed url="https://docs.openstack.org/ironic/xena/admin/cleaning.html#manual-cleaning" %}</p>
+<p>After verifying that you do indeed want to erase all disks on a node:</p>
+<pre><code class="language-sh"># Discover current &quot;provisioning_state&quot; of a node
+openstack baremetal node show \
+-c provision_state \
+&lt;node_name_or_uuid&gt;
+
+# before cleaning can be triggered, the node must be &quot;manageable&quot;
+openstack baremetal node manage &lt;node_name_or_uuid&gt;
+
+# you can choose to either:
+# Erase partition tables and similar (quick)
+openstack baremetal node clean \
+--clean-steps '[{&quot;interface&quot;: &quot;deploy&quot;, &quot;step&quot;: &quot;erase_devices_metadata&quot;}]' \
+&lt;node_name_or_uuid&gt;
+
+# or do a full erasure. If devices support hardware erasure 
+# (nvme secure erase, etc), this step will use it.
+openstack baremetal node clean \
+--clean-steps '[{&quot;interface&quot;: &quot;deploy&quot;, &quot;step&quot;: &quot;erase_devices&quot;}]' \
+&lt;node_name_or_uuid&gt;
+
+# these steps will reboot a node, pxe boot it into the ironic agent ramdisk, 
+# execute these commands, and then shut down.
+# the states will transition from manageable-&gt;clean-wait-&gt;cleaning-&gt;manageable
+
+# when done, you will need to make the node available for use again
+# setting the status to available by running
+openstack baremetal node provide &lt;node_name_or_uuid&gt;
+</code></pre>
+<h2 id="recovering-data-from-deleted-baremetal-instances">Recovering data from deleted baremetal instances</h2>
+<p>(We don't do this usually - only in exceptional cases if the instance got deleted due to an unexpected issue in the system) In case an instance on a baremetal node is deleted before the user is able to backup their data (for example in the case of an expired lease), data can be recovered as long as it is not overwritten by the launch of a new instance on the same node.</p>
+<h2 id="lease-fails-to-start">Lease Fails to start</h2>
+<h3 id="ip-address-already-allocated-in-subnet">IP address \<ip address> already allocated in subnet \<subnet\_id></h3>
+<p>This message is found in blazar logs with the errored LeaseID that failed to start</p>
+<p>Get the following information and execute the command in the controller node of the site</p>
+<pre><code class="language-bash">ORIGINAL_LEASE_ID=&quot;&lt;lease id of the lease that fails to start&gt;&quot;
+# Get reservation ID from horizon or from `openstack reservation lease show` 
+ORIGINAL_LEASE_IP_RESERVATION_ID=&quot;&lt;reservation id of the IP in the lease&gt;&quot;
+IP=&quot;&lt;IP address that is stuck in subnet&gt;&quot;
+</code></pre>
+<p>If you do not know the IP that is stuck, execute the below commands</p>
+<pre><code class="language-bash">FIP_IDS=$(mysql blazar -e &quot;select floatingip_id from floatingip_allocations where reservation_id = '$ORIGINAL_LEASE_IP_RESERVATION_ID';&quot; | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o)
+echo $FIP_IDS
+# get the ip address
+for FIP_ID in $FIP_IDS
+do
+    mysql blazar -e &quot;select id, floating_ip_address from floatingips where id = '$FIP_ID';&quot;
+done
+</code></pre>
+<p>We need to get the Lease ID of a reservation with which the IP address got stuck with</p>
+<pre><code class="language-bash"># see if IP exists and get the reservations ID tagged
+# get this from 
+`openstack floating ip show &lt;IP&gt; | egrep reservation | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o`
+</code></pre>
+<pre><code class="language-bash">TAGGED_RESERVATION_ID=&quot;&lt;the reservation ID from above command&gt;&quot;
+# get the lease id that got the IP stuck with
+IP_LEASE_ID=$(mysql blazar -e &quot;select lease_id from reservations where id ='$TAGGED_RESERVATION_ID';&quot; | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o)
+# check if the lease ended
+echo $(mysql -t blazar -e &quot;select * from leases where id ='$IP_LEASE_ID';&quot;)
+</code></pre>
+<pre class="language-bash"><code class="lang-bash"><strong># Delete the IP
+</strong>openstack floating ip delete &#x3C;IP>
+</code></pre>
+
+<p>We will need to update the current/original lease's IP reservation status, lease status, and lease event status</p>
+<pre><code class="language-bash"># Lookup the reservation of the Original IP
+echo $(mysql blazar -e &quot;select status, id from reservations where id ='$ORIGINAL_LEASE_IP_RESERVATION_ID';&quot;)
+
+# Update the reservation as active for the IP
+mysql blazar -e &quot;update reservations set status = 'active' where id = '$ORIGINAL_LEASE_IP_RESERVATION_ID' limit 1;&quot;
+
+# look up the lease status
+echo $(mysql blazar -e &quot;select * from events where lease_id ='$ORIGINAL_LEASE_ID' and status = 'ERROR';&quot; | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o)
+
+# update the errored lease to be active
+mysql blazar -e &quot;update leases set status = 'ACTIVE' where id = '$ORIGINAL_LEASE_ID' limit 1;&quot;
+
+# look up the lease event status
+mysql blazar -e &quot;select * from events where lease_id ='$ORIGINAL_LEASE_ID';&quot;
+
+EVENT_ID=$(mysql blazar -e &quot;select * from events where lease_id ='$ORIGINAL_LEASE_ID' and status = 'IN_PROGRESS';&quot; | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o)
+
+# update the event to be done
+mysql blazar -e &quot;update events set status='DONE' where id='$EVENT_ID' limit 1;&quot;
+</code></pre>
+<h3 id="host-not-in-free-pool">Host not in Free pool</h3>
+<p>OpenStack Error:</p>
+<ul>
+<li>Failed to execute action on_start for lease</li>
+<li>Conflict while adding the host</li>
+<li>One or more hosts already in availability zone(s)</li>
+</ul>
+<p>Python Exception Class:</p>
+<ul>
+<li>blazar.manager.exceptions.AggregateAlreadyHasHost</li>
+</ul>
+<p>Steps</p>
+<ol>
+<li>Go to <a href="https://chi.tacc.chameleoncloud.org/dashboard/admin/aggregates/">https://chi.tacc.chameleoncloud.org/dashboard/admin/aggregates/</a> and find UUID of the node that fails to start</li>
+<li>or query the database with:\
+      <code>mysql -D nova_api -e 'select * from aggregate_hosts where host =”&lt;host_id&gt;"'</code></li>
+<li>Take note of the reservation ID (aggregate id in MySQL query)</li>
+<li>Run <code>nova aggregate-list | grep &lt;reservation_id or aggregate_id from mysql query&gt;</code>  to find the aggregate ID (should be an integer)</li>
+<li>From the same web page afs 1., copy the list of hosts in the aggregate and paste it in a file (e.g. in \~/hosts)</li>
+<li>
+<p>Run:</p>
+<p><code>for i in `cat ~/hosts`; \
+do nova aggregate-remove-host &lt;aggregate_id&gt; $i; \
+    nova aggregate-add-host 1 $i;
+    done;\
+nova aggregate-delete &lt;aggregate_id&gt;</code></p>
+</li>
+</ol>
+<h2 id="the-lease-is-remaining-intact-and-is-not-being-deleted">The lease is remaining intact and is not being deleted.</h2>
+<p>Some states (start_lease, end_lease, before_end_lease) might be stuck with 'In progress'</p>
+<p>Solution: Update the lease event which is stuck to 'Done' and try deleting the lease.&#x20;</p>
+<p>Look up the event status' of the Lease. The below command must be executed in the controller node of the site.</p>
+<p>{% code overflow="wrap" %}</p>
+<pre><code class="language-shell-session">LEASE_ID=&lt;LEASE ID WHICH CANNOT BE DELETED&gt;
+mysql blazar -e &quot;select * from events where lease_id ='$LEASE_ID';&quot;
+</code></pre>
+<p>{% endcode %}</p>
+<p>Get the event ID and update the status as Done</p>
+<pre class="language-shell-session"><code class="lang-shell-session">EVENT_ID=$(mysql blazar -e "select * from events where
+    lease_id ='$LEASE_ID' and status = 'IN_PROGRESS';" | egrep
+<strong>    '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]+' -o)
+</strong>mysql blazar -e "update events set status='DONE' where
+    id='$EVENT_ID' limit 1;"
+</code></pre>
+
+<h2 id="moving-node-to-another-lease">Moving node to another lease</h2>
+<p>Host reallocate will find a new host based on previous lease parameters if one is available. Running `host-reallocate` without lease ID will reallocate the node for all leases. This may be useful if a node needs to be added to a maintenance lease.</p>
+<p><code>openstack reservation host reallocate &lt;hypervisor_hostname&gt; --lease-id &lt;lease_id&gt;</code> \
+\
+If you need to keep the current lease intact but want to know what upcoming leases are on the node</p>
+<p><code>openstack reservation allocation list</code>&#x20;</p>
+<p>Find using the <code>blazar_host_id</code> to get the allocations for the host&#x20;</p>
+<p><code>blazar_host_id</code> is not the same as \<hypervisor\_hostname>, this ID can be acquired from <code>openstack reservation host show &lt;hypervisor_hostname&gt;</code> and the <code>id</code> from it will be <code>blazar_host_id</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
