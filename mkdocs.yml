@@ -25,3 +25,4 @@ nav:
     - 'Change BIOS Settings': guides/bios-changes.md
     - 'Troubleshooting': guides/troubleshooting.md
     - 'Identity Federation': guides/identity_federation.md
+    - 'CHI@Edge': guides/chi_edge.md
