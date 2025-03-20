@@ -68,3 +68,11 @@ Ultimately, we should implement some or all of the following:
 2. provide a mechanism to open a helpdesk ticket from the account linking page
 3. permit use of email to validate linked accounts (but only verified emails)
 4. take advantage of the list of identities that globus returns to match users more robustly, and direct users to the globus account linking
+
+
+## References
+
+* [Globus Identities](https://docs.globus.org/api/auth/specification/#identities)
+* [OpenID Auth Code Flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
+* [Keycloak ID Brokering](https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker_overview)
+* [Migrating towards Single Sign-On and Federated Identity](https://chameleoncloud.org/media/filer_public/8e/a5/8ea5bbb8-5b21-4ee7-a29c-3063afef7751/pearc22-federated-identity.pdf)
