@@ -4,6 +4,10 @@ site_dir: public
 #repo_url: https://github.com/ChameleonCloud/operator-docs/
 #edit_uri: edit/main/docs/
 
+plugins:
+  - search
+  - mermaid2
+
 theme:
   name: material
   features:
@@ -20,3 +24,4 @@ nav:
   - Guides:
     - 'Change BIOS Settings': guides/bios-changes.md
     - 'Troubleshooting': guides/troubleshooting.md
+    - 'Identity Federation': guides/identity_federation.md
